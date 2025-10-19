@@ -282,7 +282,7 @@ public class Lawena {
         log.fine("Movie path: " + settings.getMoviePath());
         log.fine("Lawena path: " + Paths.get("").toAbsolutePath());
 
-        view.setTitle("Lawena Recording Tool " + shortver());
+        view.setTitle("Lawena Recording Tool " + shortver() + " - SniperPOV Version");
         URL url = Lawena.class.getClassLoader().getResource("ui/tf2.png");
         if (url != null) {
             view.setIconImage(new ImageIcon(url).getImage());

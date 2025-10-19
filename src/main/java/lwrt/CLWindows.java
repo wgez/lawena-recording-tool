@@ -38,13 +38,15 @@ public class CLWindows extends CommandLine {
             log.warning("Could not obtain real path of game executable: " + e.toString());
         }
         Path hookPath = Paths.get(hlaePath).resolveSibling("AfxHookSource.dll");
+        Path hookPath_sniperPov = Paths.get(hlaePath).resolveSibling("SniperPOV.dll");
         try {
             hookPath = hookPath.toRealPath();
         } catch (IOException e) {
             log.warning("Could not obtain real path of HLAE Source hook DLL: " + e.toString());
         }
         return new ProcessBuilder(hlaePath, "-customLoader", "-autoStart",
-            "-hookDllPath", hookPath.toString(), "-programPath", hl2Path.toString(), "-cmdLine");
+            "-hookDllPath", hookPath.toString(), "-hookDllPath", hookPath_sniperPov.toString(),
+            "-programPath", hl2Path.toString(), "-cmdLine");
     }
 
     @Override
